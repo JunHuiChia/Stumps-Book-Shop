@@ -1,0 +1,89 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 23 Apr 2022, 21:02:30
+    Author     : jeffe
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+html{
+    background-color: #f2f2f2;
+    overflow-y:scroll;
+}
+
+body{
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+.navbar{
+    display: flex;
+    margin: auto;
+    border: 1px red;
+    width: max-content;
+    font-family: "Poppins";
+}
+
+.bar{
+    padding: 1rem 0; 
+    background-color: white;
+    border-bottom: 1px solid black;
+}
+
+.navlink{
+    margin: auto 2rem;
+    color: black;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+#navBtns{
+    margin-left: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 40rem;
+    
+}
+
+.logo{
+    width: 128px;
+    height: 128px;
+}
+
+.cartCounter{
+    position: relative;
+    font-size: 0.7rem;
+    bottom: 0.8rem;
+    cursor: pointer;
+    font-weight: bolder;
+    color: white;
+    z-index: 0;
+}
+
+.cartCounter:after{
+    content: " ";
+    height: 17px;
+    width: 17px;
+    background: red;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative; 
+    right: 1.15em; 
+    top:0.25rem;
+    z-index: -1;
+}
+
+.userInfo{
+    display: flex;
+}
+
+.userInfo>*{
+    margin: auto 2rem;
+}

@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:components="http://xmlns.jcp.org/jsf/composite/components">
+    <h:head>
+        <title>Shopping Cart</title>
+        <h:outputStylesheet library="css" name="navbar.css"/>
+        <h:outputStylesheet library="css" name="cart.css"/>
+    </h:head>
+    <h:body>
+        <components:navbar/>
+        <div class="cartPage">
+            <h1>Shopping Cart</h1>
+            <h:panelGroup rendered="#{!cartBean.isEmpty}" class="cart">
+                <div class="cartTitle">
+                    <p class="bookTitleLabel">Book Name</p>
+                    <p class="bookPriceLabel">Price</p>
+                    <p> </p>
+                </div>
+                <ui:repeat value="#{cartBean.cartItems}" var="book">
+                    <div class="cartItem">
+                        <p class="bookName">#{book.bookName}</p>
+                        <p class="bookPrice">£#{book.price}</p>
+                        <h:form class="deleteBookBtnWrapper">
+                            <h:commandButton class="deleteBtn" value="X" action="#{cartBean.deleteBookFromCart(book)}">
+                            </h:commandButton>
+                        </h:form>
+                    </div>
+
+                </ui:repeat>
+                <strong class="totalPrice">Total: £#{cartBean.cartTotal}</strong>
+                <h:form class="btn">
+                    <h:commandButton class="checkoutBtn" rendered="#{loginBean.isLoggedIn}" value="Checkout" action="#{cartBean.checkoutCart(loginBean.email)}">
+                    </h:commandButton>
+                    <h:commandButton class="disabledBtn" disabled="true" title="Not logged in" rendered="#{!loginBean.isLoggedIn}" value="Checkout" action="#{cartBean.checkoutCart(loginBean.email)}">
+                    </h:commandButton>
+                </h:form>
+            </h:panelGroup>
+            <h:panelGroup class="emptyCart" rendered="#{cartBean.isEmpty}">
+                Your shopping cart is empty
+            </h:panelGroup>
+        </div>
+    </h:body>
+</html>
+

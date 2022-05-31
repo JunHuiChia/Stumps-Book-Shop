@@ -1,0 +1,64 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 23 Apr 2022, 21:02:30
+    Author     : jeffe
+*/
+
+
+.bookContainer{
+    display:flex;
+    flex-wrap: wrap;
+    width: 60%;
+    margin: 3rem auto;
+}
+
+.bookBox{
+    border: 1px black solid;
+    padding: 1rem;
+    min-width: 7rem;
+    max-width: 7rem;
+    min-height: 10rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: black;
+    background-color: white;
+    box-shadow: 0px 0px 7px black;
+    transition: all 0.3s;
+}
+
+.bookBox:hover{
+    transform: scale(1.1);
+    background: #dedede;
+}
+
+.bookLink{
+    margin: 1rem;
+}
+
+.bookBox>*{
+    margin: auto;
+}
+
+.btn{
+    border: none;
+    border-radius: 1rem;
+    width: 6rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: #de2454;
+    color: white;
+}
+
+.btn:hover{
+    background-color: #ba0012;
+}
+
+#bookName{
+    font-weight: 500;
+    font-size: 1.2rem;
+}

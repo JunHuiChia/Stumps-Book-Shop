@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:components="http://xmlns.jcp.org/jsf/composite/components">
+    <h:head>
+        <title>Register</title>
+        <h:outputStylesheet library="css" name="navbar.css"/>
+        <h:outputStylesheet library="css" name="register.css"/>
+    </h:head>
+    <h:body>
+        <components:navbar/>
+        <h:form id="registerForm">
+            <h1>Register</h1>
+            <div class="firstNameArea">
+                <h:outputLabel class="title" for="firstName" value="First Name"/>
+                <h:inputText class="inputArea" id="firstName" value="#{customerBean.firstName}">
+                </h:inputText>
+            </div>
+            <div class="lastNameArea">
+                <h:outputLabel class="title" for="lastName" value="Surname"/>
+                <h:inputText class="inputArea" id="lastName" value="#{customerBean.lastName}">
+                </h:inputText>
+            </div>
+            <div class="emailArea">
+                <h:outputLabel class="title" for="email" value="Email"/>
+                <h:inputText class="inputArea" id="email" value="#{customerBean.email}">
+                </h:inputText>
+            </div>
+            <div class="passwordArea">
+                <h:outputLabel class="title" for="password" value="Password"/>
+                <h:inputSecret class="inputArea" id="password" value="#{customerBean.password}">
+                </h:inputSecret>
+            </div>
+            <h:commandButton class="registerBtn" value='Register' action="#{customerBean.doRegister()}"/>
+            <div class="unregisteredSection">
+                <p>Registered already?</p>
+                <h:outputLink class="loginLink" value="login.xhtml">Login Here</h:outputLink>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+

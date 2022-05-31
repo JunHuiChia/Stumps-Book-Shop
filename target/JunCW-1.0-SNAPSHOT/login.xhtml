@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:components="http://xmlns.jcp.org/jsf/composite/components">
+    <h:head>
+        <title>Login</title>
+        <h:outputStylesheet library="css" name="navbar.css"/>
+        <h:outputStylesheet library="css" name="login.css"/>
+
+    </h:head>
+    <h:body>
+        <components:navbar/>
+        <f:view>
+            <h:form id="loginForm">
+                <h1>Login</h1>
+                        <div class="emailArea">
+                            <h:outputText class="title" value="Email" />
+                            <h:inputText  class="inputArea" id="inputName" value="#{customerBean.email}"
+                                    required="true" requiredMessage="Name field must not be empty" />
+
+                            <h:message for="inputName" style="color:red" />
+                        </div>
+                        <div class="passwordArea">
+                            <h:outputText class="title" value="Password" />
+                            <h:inputSecret class="inputArea" id="inputPassword" value="#{customerBean.password}"
+                                    required="true"
+                                    requiredMessage="Password field must not be empty" />
+                            <h:message for="inputPassword" style="color:red" />
+                        </div>
+                <h:commandButton class="loginBtn" value="Sign In" action="#{customerBean.login()}">
+                </h:commandButton>
+                <div class="unregisteredSection">
+                    <p>Don't have an account?</p>
+                    <h:outputLink class="registerLink" value="register.xhtml">  Register Here</h:outputLink>
+                </div>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+

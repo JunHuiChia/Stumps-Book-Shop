@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+    
+    
+    <composite:interface></composite:interface>
+    <composite:implementation>
+        <div class="bar">
+            <div class="navbar">
+                <h:outputLink class="logo" value="start.xhtml">
+                    <h:graphicImage class="logo" library="images" name="logo.PNG"/>
+                </h:outputLink>
+
+                <div id="navBtns">
+                    <h:outputLink class="navlink" value="start.xhtml">Home</h:outputLink>
+                    <h:outputLink class="navlink" value="cart.xhtml" rendered="#{!loginBean.isManager}">Cart
+                        <h:outputLabel class="cartCounter">#{cartBean.cartTotalItems}</h:outputLabel>
+                    </h:outputLink>
+                    <h:body rendered="#{!loginBean.isLoggedIn}">
+                        <h:outputLink class="navlink" value="login.xhtml">Login</h:outputLink>
+                        <h:outputLink class="navlink" value="register.xhtml">Register</h:outputLink>
+                    </h:body>
+
+
+                    <h:outputLabel class="userInfo" rendered="#{loginBean.isLoggedIn}">
+                        <h:outputLink class="navlink" value="orders.xhtml" rendered="#{!loginBean.isManager}">Orders</h:outputLink>
+                        <h:outputLink class="navlink" value="admin.xhtml" rendered="#{loginBean.isManager}">Manage</h:outputLink>
+                        <h:outputLabel>Welcome! #{loginBean.firstName}</h:outputLabel>
+                    </h:outputLabel>
+                    <h:outputLabel rendered="#{loginBean.isLoggedIn}">
+                        <h:form id="logoutBtn">
+                            <h:commandButton  value="Log out" action="#{loginBean.logOut()}"/>
+                        </h:form>
+                    </h:outputLabel>
+                </div>
+            </div>
+        </div>
+    </composite:implementation>
+</html>
+

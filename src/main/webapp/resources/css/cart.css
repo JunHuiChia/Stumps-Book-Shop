@@ -1,0 +1,116 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 10 May 2022, 19:05:19
+    Author     : jeffe
+*/
+
+.cartPage{
+    background: white;
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    margin: 2rem auto;
+    min-width: 40rem;
+    box-shadow: 0px 0px 5px black;
+
+}
+
+h1, .emptyCart{
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    margin: 2rem auto;
+}
+
+.cart{
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    margin-bottom: 2rem;
+}
+
+.cartItem, .cartTitle{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+.cartTitle{
+    font-weight: bold;
+    font-size: 1.2rem;
+    background: #c8c8c8;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+
+.cartItem{
+    background: #e5e5e5;
+    border-top: #abbfcb 1px solid;
+    border-bottom: #abbfcb 1px solid;
+}
+
+.bookPriceLabel{
+    margin-right: 1rem;
+}
+
+.bookPrice, .bookPriceLabel{
+    margin-left: 25rem;
+}
+
+
+.bookTitleLabel, .bookName{
+    min-width: 8rem;
+}
+
+.totalPrice, .btn{
+    align-self: end;
+    margin-right: 3rem;
+    margin-top: 1rem;
+}
+
+
+.deleteBookBtnWrapper{
+    align-self: center;
+    position: relative;
+    left: 1rem;
+}
+
+.deleteBtn{
+    background-color: #ff6d6d;
+    border: #ffc1c1 1px solid;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.deleteBtn:hover{
+    background-color: #ba0012;
+}
+
+.disabledBtn{
+    cursor: not-allowed;
+    background-color: #8a8a8a;
+}
+
+.checkoutBtn, .disabledBtn{
+    width: 7rem;
+    height: 2.5rem;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    position: relative;
+    left: 1rem;
+}
+
+.checkoutBtn{
+    background-color: #de2454;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.checkoutBtn:hover{
+    background-color: #ba0012;
+    transform: scale(1.1);
+}

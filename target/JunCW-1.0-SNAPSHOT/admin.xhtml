@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:components="http://xmlns.jcp.org/jsf/composite/components"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Admin Page</title>
+        <h:outputStylesheet library="css" name="navbar.css"/>
+        <h:outputStylesheet library="css" name="admin.css"/>
+    </h:head>
+    <h:body>
+        <components:navbar/>
+        <h:form id="adminForm" rendered="#{loginBean.isManager}">
+            #{orderBean.allOrders()}
+            <ui:repeat value="#{orderBean.orders}" var="order">
+                <h:outputLabel class="orderInfo">
+                    <h:outputLabel class="orderID">Order ID: #{order.id}</h:outputLabel>
+                    <h:outputLabel class="customerID">Customer ID: #{order.customerID}</h:outputLabel>
+                    <h:outputLabel class="orderDate">Date Ordered: #{order.dateCreated}</h:outputLabel>
+                    <h:outputLabel class="orderPrice">Total: £#{order.totalPrice}</h:outputLabel>
+                    <h:outputLabel class="orderStatus">Status: #{order.status}</h:outputLabel>
+<!--                    <h:form>
+                        <h:selectOneMenu value="#{orderBean.newStatus}">
+                            <f:selectItems value="#{orderBean.status}" var="s" itemLabel="#{s}" itemValue="#{s}">
+                            </f:selectItems>
+                            <h:commandButton value="Change Status"></h:commandButton>
+                            </h:selectOneMenu>
+                        </h:form>-->
+                </h:outputLabel>
+            </ui:repeat>
+            <table frame="box" class="dataTable">
+                <tr>
+                    <th>Add Book</th>
+                </tr>
+                <tr>
+                    <td><h:outputText value="Book Name: " /></td>
+                    <td><h:inputText id="inputBookName" value="#{bookBean.bookName}"
+                            required="true" requiredMessage="Book Name field must not be empty" />
+                    </td>
+                    <td><h:message for="inputBookName" style="color:red" /></td>
+                </tr>
+                <tr>
+                    <td><h:outputText value="Author:" /></td>
+                    <td><h:inputText id="inputAuthor" value="#{bookBean.author}"
+                            required="true"
+                            requiredMessage="Author field must not be empty" /></td>
+                    <td><h:message for="inputAuthor" style="color:red" /></td>
+                </tr>
+                <tr>
+                    <td><h:outputText value="Publisher: " /></td>
+                    <td><h:inputText id="inputPublisher" value="#{bookBean.publisher}"
+                            required="true"
+                            requiredMessage="Publisher: field must not be empty" /></td>
+                    <td><h:message for="inputPublisher:" style="color:red" /></td>
+                </tr>
+                <tr>
+                    <td><h:outputText value="Edition:" /></td>
+                    <td><h:inputText id="inputEdition" value="#{bookBean.edition}"
+                            required="true"
+                            requiredMessage="Edition field must not be empty" /></td>
+                    <td><h:message for="inputEdition" style="color:red" /></td>
+                </tr>
+                <tr>
+                    <td><h:outputText value="Year of publish" /></td>
+                    <td><h:inputText id="inputYOP" value="#{bookBean.yop}"
+                            required="true"
+                            requiredMessage="YOP field must not be empty" /></td>
+                    <td><h:message for="inputYOP" style="color:red" /></td>
+                </tr>
+                <tr>
+                    <td><h:outputText value="Price:" /></td>
+                    <td><h:inputText id="inputPrice" value="#{bookBean.price}"
+                            required="true"
+                            requiredMessage="Price field must not be empty" /></td>
+                    <td><h:message for="inputPrice" style="color:red" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <h:commandButton value="Add Book" action="#{bookBean.addBook()}">
+                        </h:commandButton>                        
+                    </td>
+                </tr>
+            </table>
+        </h:form> 
+        <h:form rendered="#{!loginBean.isManager}">
+            You do not have access to this page!
+        </h:form>
+    </h:body>
+</html>
+

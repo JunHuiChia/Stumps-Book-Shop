@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:components="http://xmlns.jcp.org/jsf/composite/components"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <ui:repeat value="#{bookBean.currentBook}" var="book">
+            <title>#{book.bookName}</title>
+        </ui:repeat>
+        <h:outputStylesheet library="css" name="navbar.css"/>
+        <h:outputStylesheet library="css" name="book.css"/>
+    </h:head>
+    <h:body>
+        <components:navbar/>
+        <ui:repeat value="#{bookBean.currentBook}" var="book">
+            <div class="bookDetailed">
+                <div id="bookImage">Img</div>
+                <div id="bookInfo">
+                    <p id="bookName">#{book.bookName}</p>
+                    <p id="bookAuthor">#{book.author}</p>
+                    <p id="bookPrice">£#{book.price}</p>
+                    <h:form id="addToCartBtnWrapper">
+                        <h:commandButton class="addToCartBtn" action="#{cartBean.addBookToCart(book)}" value="Add to cart">
+                            <f:param name="bookID" value="#{book.id}"/>
+                        </h:commandButton>
+                    </h:form>
+                    <p id="productDetailLabel">Product Detail</p>
+                    <div id="productDetail">
+                        <div class="detailLabel">
+                            <p>Publisher</p>
+                            <p>Publish Year</p>
+                            <p>Edition</p>
+                        </div>
+                        <div class="detailLabelInverse">
+                            <p id="bookPublisher">#{book.publisher}</p>
+                            <p id="bookYOP"> #{book.yop}</p>
+                            <p id="bookEdition">#{book.edition}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ui:repeat>
+    </h:body>
+</html>
+
